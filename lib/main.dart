@@ -31,14 +31,24 @@ class HomePage extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.done) {
               final user = FirebaseAuth.instance.currentUser;
               if (user?.emailVerified ?? false) {
-                print('User is verified');
-              } else {
-                print('You need to verify your email first');
-              }
-              return const Text('Done!');
+              } else {}
             }
             return const Text('Loading...');
           },
         ));
+  }
+}
+
+class verifyEmailView extends StatefulWidget {
+  const verifyEmailView({super.key});
+
+  @override
+  State<verifyEmailView> createState() => _verifyEmailViewState();
+}
+
+class _verifyEmailViewState extends State<verifyEmailView> {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold();
   }
 }
